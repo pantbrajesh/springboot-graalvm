@@ -1,8 +1,11 @@
 This is a sample project using spring boot and graalvm with in memory database.
 
-GraalVm : https://www.graalvm.org/
+GraalVm : https://www.graalvm.org/ 
 Spring Boot : https://spring.io/projects/spring-boot
 
 
 To Run the project clone and run the below command
+
+```shell
 mvn -Pnative clean package -Dmaven.test.skip=true
+```
