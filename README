@@ -40,7 +40,7 @@ The standard way takes about ```6.311``` seconds to start up and it uses around 
 
 Now comparing our Natively compiled Spring Boot App, we see a startup time of about 1.295 seconds:
 
-![Scheme](images/Native-Boot Time.png)
+![Scheme](images/Native-BootTime.png)
 
 and uses only ```165MB``` of RAM:
 
