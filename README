@@ -32,6 +32,7 @@ mvn -Pnative clean package -Dmaven.test.skip=true
 
 
 <h1>Comparing Startup time & Memory footprint</h1>
+
 ![Scheme](images/Standard-BootTime.png)
 
 The standard way takes about ```6.311``` seconds to start up and it uses around ```767``` MB of RAM:
