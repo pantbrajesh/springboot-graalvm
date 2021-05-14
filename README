@@ -11,11 +11,11 @@ Once you have installed it, you will also need native-image builder component se
 
 ```shell
 gu install native-image
-
 ```
 
-```shell gu ``` is the utility that you get in graalvm. 
-Also make sure your ```shell JAVA_HOME ``` is set and pointing to graalvm. This is how it looks on my machine
+```gu ``` is the utility that you get in graalvm. 
+
+Also make sure your ``` JAVA_HOME ``` is set and pointing to graalvm. This is how it looks on my machine
 
 ```shell
 java -version
