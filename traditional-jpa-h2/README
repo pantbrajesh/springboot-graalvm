@@ -32,20 +32,21 @@ mvn -Pnative clean package -Dmaven.test.skip=true
 
 
 <h1>Comparing Startup time & Memory footprint</h1>
+
 ![Scheme](images/Standard-BootTime.png)
 
 The standard way takes about ```6.311``` seconds to start up and it uses around ```767``` MB of RAM:
 
 ![Scheme](images/Standard-Memory.png)
 
-Now comparing our Natively compiled Spring Boot App, we see a startup time of about 1.295 seconds:
+Now comparing our Natively compiled Spring Boot App, we see a startup time of about ```1.295``` seconds:
 
-![Scheme](images/Native-Boot Time.png)
+![Scheme](images/Native-BootTime.png)
 
 and uses only ```165MB``` of RAM:
 
 ![Scheme](images/Native-Memory.png)
 
-So with a default Spring App we have around 800MB memory consumption, a natively compiled Spring App has only 165MB. 
-That means, we could run more than 4 Spring microservices with the same amount of RAM we needed for only one standard Spring microservice.
+So with a default Spring App we have around ```800MB``` memory consumption, a natively compiled Spring App has only ```165MB``` . 
+That means, we could run more than ```4``` Spring microservices with the same amount of RAM we needed for only one standard Spring microservice.
 
