@@ -1,163 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.ruckus.cloud</groupId>
-	<artifactId>tradational-jpa-h2</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>tradational</name>
-	<description>Demo project for Spring Boot using Graal VM</description>
-	<properties>
-		<java.version>11</java.version>
-		<start-class>com.ruckus.cloud.tradational.TradationalApplication</start-class>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>net.bytebuddy</groupId>
-					<artifactId>byte-buddy</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<!--GraalVm Dependency-->
-		<dependency>
-			<groupId>org.springframework.experimental</groupId>
-			<artifactId>spring-graalvm-native</artifactId>
-			<version>0.8.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-indexer</artifactId>
-		</dependency>
-
-		<!--GraalVm Dependency END-->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-graalvm -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-	<profiles>
-		<profile>
-			<id>native</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.hibernate.orm.tooling</groupId>
-						<artifactId>hibernate-enhance-maven-plugin</artifactId>
-						<version>${hibernate.version}</version>
-						<executions>
-							<execution>
-								<configuration>
-									<failOnError>true</failOnError>
-									<enableLazyInitialization>true</enableLazyInitialization>
-									<enableDirtyTracking>true</enableDirtyTracking>
-									<enableAssociationManagement>true</enableAssociationManagement>
-									<enableExtendedEnhancement>false</enableExtendedEnhancement>
-								</configuration>
-								<goals>
-									<goal>enhance</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.graalvm.nativeimage</groupId>
-						<artifactId>native-image-maven-plugin</artifactId>
-						<version>20.3.0</version>
-						<configuration>
-							<mainClass>com.ruckus.cloud.tradational.TradationalApplication</mainClass>
-							<buildArgs>-Dspring.graal.remove-unused-autoconfig=true --no-fallback --allow-incomplete-classpath --report-unsupported-elements-at-runtime -H:+ReportExceptionStackTraces --no-server --enable-all-security-services --trace-class-initialization -H:+ReportExceptionStackTraces -H:EnableURLProtocols=http -H:+RemoveSaturatedTypeFlows </buildArgs>
-						</configuration>
-						<executions>
-							<execution>
-								<goals>
-									<goal>native-image</goal>
-								</goals>
-								<phase>package</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
-
-	<repositories>
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-		<repository>
-			<id>spring-libs-snapshot</id>
-			<url>https://repo.spring.io/libs-snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>spring-libs-milestone</id>
-			<name>Spring milestone</name>
-			<url>https://repo.spring.io/libs-milestone</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-milestone</id>
-			<name>Spring milestone</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-	</pluginRepositories>
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.ruckus.cloud</groupId>
+<artifactId>app</artifactId>
+<version>1.0-SNAPSHOT</version>
+<packaging>pom</packaging>
+<name>Spirg-graalvm</name>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>2.3.2</version>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+<modules>
+    <module>traditional-jpa-h2</module>
+</modules>
 </project>
