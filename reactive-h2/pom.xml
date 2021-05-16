@@ -11,33 +11,16 @@
     <groupId>com.ruckus.cloud</groupId>
     <artifactId>reactive-jpa-h2</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>reactive</name>
+    <name>reactive-h2</name>
     <description>Demo project for Spring Boot using Graal VM</description>
     <properties>
         <java.version>11</java.version>
-        <start-class>com.ruckus.cloud.reactive.ReactiveApplication</start-class>
+        <spring-native.version>0.9.2</spring-native.version>
+        <start-class>com.ruckus.cloud.reactive.ReactiveJpaH2Application</start-class>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>net.bytebuddy</groupId>
-                    <artifactId>byte-buddy</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <!--GraalVm Dependency-->
+        <!--Graal Vm dependency-->
         <dependency>
             <groupId>org.springframework.experimental</groupId>
             <artifactId>spring-graalvm-native</artifactId>
@@ -52,33 +35,42 @@
             <artifactId>spring-context-indexer</artifactId>
         </dependency>
 
-        <!--GraalVm Dependency END-->
+        <!--Dependency Ends-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-h2</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-graalvm -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
         </dependency>
-
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
     <profiles>
         <profile>
@@ -86,30 +78,11 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.hibernate.orm.tooling</groupId>
-                        <artifactId>hibernate-enhance-maven-plugin</artifactId>
-                        <version>${hibernate.version}</version>
-                        <executions>
-                            <execution>
-                                <configuration>
-                                    <failOnError>true</failOnError>
-                                    <enableLazyInitialization>true</enableLazyInitialization>
-                                    <enableDirtyTracking>true</enableDirtyTracking>
-                                    <enableAssociationManagement>true</enableAssociationManagement>
-                                    <enableExtendedEnhancement>false</enableExtendedEnhancement>
-                                </configuration>
-                                <goals>
-                                    <goal>enhance</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
                         <groupId>org.graalvm.nativeimage</groupId>
                         <artifactId>native-image-maven-plugin</artifactId>
-                        <version>20.3.0</version>
+                        <version>21.1.0</version>
                         <configuration>
-                            <mainClass>com.ruckus.cloud.tradational.TradationalApplication</mainClass>
+                            <mainClass>com.ruckus.cloud.reactive.ReactiveJpaH2Application</mainClass>
                             <buildArgs>-Dspring.graal.remove-unused-autoconfig=true --no-fallback --allow-incomplete-classpath --report-unsupported-elements-at-runtime -H:+ReportExceptionStackTraces --no-server --enable-all-security-services --trace-class-initialization -H:+ReportExceptionStackTraces -H:EnableURLProtocols=http -H:+RemoveSaturatedTypeFlows </buildArgs>
                         </configuration>
                         <executions>
@@ -129,8 +102,6 @@
             </build>
         </profile>
     </profiles>
-
-
     <repositories>
         <repository>
             <id>jitpack.io</id>
@@ -152,7 +123,6 @@
             <url>https://repo.spring.io/libs-milestone</url>
         </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestone</id>
@@ -160,4 +130,5 @@
             <url>https://repo.spring.io/milestone</url>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
