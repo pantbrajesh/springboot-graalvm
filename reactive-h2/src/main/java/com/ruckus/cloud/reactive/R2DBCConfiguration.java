@@ -10,11 +10,12 @@ import io.r2dbc.h2.H2ConnectionFactory;
 @EnableR2dbcRepositories
 public class R2DBCConfiguration extends AbstractR2dbcConfiguration {
 
+    @Override
     @Bean
     public H2ConnectionFactory connectionFactory() {
         return new H2ConnectionFactory(
                 io.r2dbc.h2.H2ConnectionConfiguration.builder()
-                        .url("r2dbc:h2:mem://./DEVICE;DB_CLOSE_DELAY=-1;")
+                        .url("r2dbc:h2:mem://DEVICE;DB_CLOSE_DELAY=-1;")
                         .build()
         );
     }

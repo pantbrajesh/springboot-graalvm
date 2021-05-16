@@ -21,6 +21,6 @@
 </build>
 <modules>
     <module>traditional-jpa-h2</module>
-    <module>reactive-jpa-h2</module>
+    <module>reactive-h2</module>
 </modules>
 </project>

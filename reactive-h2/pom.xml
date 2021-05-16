@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ruckus.cloud</groupId>
-    <artifactId>reactive-jpa-h2</artifactId>
+    <artifactId>reactive-h2</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>reactive-h2</name>
     <description>Demo project for Spring Boot using Graal VM</description>
