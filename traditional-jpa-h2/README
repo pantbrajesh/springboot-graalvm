@@ -1,51 +1,18 @@
-This is a sample project using spring boot and graalvm with in memory database.
-
-GraalVm : https://www.graalvm.org/
- 
-Spring Boot : https://spring.io/projects/spring-boot
-
-
-Let's get started. You're going to need to install GraalVM. You could download it from  https://www.graalvm.org/
-
-Once you have installed it, you will also need native-image builder component seperately. Run below command 
-
-```shell
-gu install native-image
-```
-
-```gu ``` is the utility that you get in graalvm. 
-
-Also make sure your ``` JAVA_HOME ``` is set and pointing to graalvm. This is how it looks on my machine
-
-```shell
-java -version
-openjdk version "11.0.11" 2021-04-20
-OpenJDK Runtime Environment GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05)
-OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)
-```
-
-To Run the project clone and run the below command
-
-```shell
-mvn -Pnative clean package -Dmaven.test.skip=true
-```
-
-
 <h1>Comparing Startup time & Memory footprint</h1>
 
-![Scheme](images/Standard-BootTime.png)
+![Standard Boot time](https://raw.githubusercontent.com/pantbrajesh/springboot-graalvm/master/traditional-jpa-h2/images/Standard-BootTime.png)
 
 The standard way takes about ```6.311``` seconds to start up and it uses around ```767``` MB of RAM:
 
-![Scheme](images/Standard-Memory.png)
+![Standar Memory](https://raw.githubusercontent.com/pantbrajesh/springboot-graalvm/master/traditional-jpa-h2/images/Standard-Memory.png)
 
 Now comparing our Natively compiled Spring Boot App, we see a startup time of about ```1.295``` seconds:
 
-![Scheme](images/Native-BootTime.png)
+![Native Boot](https://raw.githubusercontent.com/pantbrajesh/springboot-graalvm/master/traditional-jpa-h2/images/Native-BootTime.png)
 
 and uses only ```165MB``` of RAM:
 
-![Scheme](images/Native-Memory.png)
+![Native Memory](https://raw.githubusercontent.com/pantbrajesh/springboot-graalvm/master/traditional-jpa-h2/images/Native-Memory.png)
 
 So with a default Spring App we have around ```800MB``` memory consumption, a natively compiled Spring App has only ```165MB``` . 
 That means, we could run more than ```4``` Spring microservices with the same amount of RAM we needed for only one standard Spring microservice.
