@@ -1,4 +1,4 @@
-package com.ruckus.cloud.tradational;
+package com.techlake.cloud.tradational;
 
 
 import lombok.Data;

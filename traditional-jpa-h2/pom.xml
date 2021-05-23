@@ -8,14 +8,14 @@
 		<version>2.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ruckus.cloud</groupId>
+	<groupId>com.techlake.cloud</groupId>
 	<artifactId>tradational-jpa-h2</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>tradational</name>
 	<description>Demo project for Spring Boot using Graal VM</description>
 	<properties>
 		<java.version>11</java.version>
-		<start-class>com.ruckus.cloud.tradational.TradationalApplication</start-class>
+		<start-class>com.techlake.cloud.tradational.TradationalApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -109,7 +109,7 @@
 						<artifactId>native-image-maven-plugin</artifactId>
 						<version>20.3.0</version>
 						<configuration>
-							<mainClass>com.ruckus.cloud.tradational.TradationalApplication</mainClass>
+							<mainClass>com.techlake.cloud.tradational.TradationalApplication</mainClass>
 							<buildArgs>-Dspring.graal.remove-unused-autoconfig=true --no-fallback --allow-incomplete-classpath --report-unsupported-elements-at-runtime -H:+ReportExceptionStackTraces --no-server --enable-all-security-services --trace-class-initialization -H:+ReportExceptionStackTraces -H:EnableURLProtocols=http -H:+RemoveSaturatedTypeFlows </buildArgs>
 						</configuration>
 						<executions>

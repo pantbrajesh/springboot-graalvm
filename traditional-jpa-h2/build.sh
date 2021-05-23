@@ -36,7 +36,15 @@ CP=BOOT-INF/classes:$LIBPATH
 
 GRAALVM_VERSION=$(native-image --version)
 
-time native-image --verbose --trace-class-initialization=sun.instrument.InstrumentationImpl --initialize-at-run-time=org.hibernate.internal.util.ReflectHelper --enable-all-security-services --trace-class-initialization -H:+ReportExceptionStackTraces -H:EnableURLProtocols=http -H:+RemoveSaturatedTypeFlows -H:Name="$ARTIFACT" -Dspring.native.verbose=true -Dspring.native.remove-jmx-support=true -Dspring.native.remove-spel-support=true -Dspring.native.remove-yaml-support=true -Dspring.graal.dump-config=/tmp/computed-reflect-config.json -cp "$CP" "$MAINCLASS"
-
-
- # --trace-class-initialization  --initialize-at-run-time=org.hibernate.internal.util.ReflectHelper --initialize-at-build-time=sun.instrument.InstrumentationImpl --trace-class-initialization=sun.instrument.InstrumentationImpl
+time native-image --verbose \
+--trace-class-initialization=sun.instrument.InstrumentationImpl \
+--initialize-at-run-time=org.hibernate.internal.util.ReflectHelper \
+--enable-all-security-services --trace-class-initialization \
+-H:+ReportExceptionStackTraces -H:EnableURLProtocols=http \
+-H:+RemoveSaturatedTypeFlows \
+-H:Name="$ARTIFACT" \
+-Dspring.native.verbose=true \
+-Dspring.native.remove-jmx-support=true \
+-Dspring.native.remove-spel-support=true \
+-Dspring.native.remove-yaml-support=true \
+-cp "$CP" "$MAINCLASS"

@@ -1,9 +1,8 @@
-package com.ruckus.cloud.tradational.controller;
+package com.techlake.cloud.tradational.controller;
 
-import com.ruckus.cloud.tradational.Device;
-import com.ruckus.cloud.tradational.repository.DeviceRepository;
+import com.techlake.cloud.tradational.Device;
+import com.techlake.cloud.tradational.repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

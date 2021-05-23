@@ -1,4 +1,4 @@
-package com.ruckus.cloud.reactive;
+package com.techlake.cloud.reactive;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
