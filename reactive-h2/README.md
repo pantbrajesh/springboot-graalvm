@@ -1,6 +1,6 @@
 <h1>Comparing Startup time & Memory footprint for reactive application</h1>
 
-(src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/StandardBootTime.png?raw=true")
+![Standard Boot Time](src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/StandardBootTime.png?raw=true")
 
 The standard way takes about ```6.311``` seconds to start up and it uses around ```767``` MB of RAM:
 
