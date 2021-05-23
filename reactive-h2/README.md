@@ -1,10 +1,10 @@
 <h1>Comparing Startup time & Memory footprint for reactive application</h1>
 
-![Image of Yaktocat] (https://github.com/pantbrajesh/springboot-graalvm/tree/master/reactive-h2/images/StandardBootTime.png)
+![Image of Yaktocat](https://github.com/pantbrajesh/springboot-graalvm/tree/master/reactive-h2/images/StandardBootTime.png)
 
 The standard way takes about ```6.311``` seconds to start up and it uses around ```767``` MB of RAM:
 
-![Image of Yaktocat] (https://github.com/pantbrajesh/springboot-graalvm/tree/master/reactive-h2/images/StandarMemory.png)
+![Image of Yaktocat](https://github.com/pantbrajesh/springboot-graalvm/tree/master/reactive-h2/images/StandarMemory.png)
 
 Now comparing our Natively compiled Spring Boot App, we see a startup time of about ```1.295``` seconds:
 
