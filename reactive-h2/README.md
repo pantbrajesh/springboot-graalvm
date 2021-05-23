@@ -1,18 +1,18 @@
 <h1>Comparing Startup time & Memory footprint for reactive application</h1>
 
-![Standard Boot Time](src="StandardBootTime.png?raw=true")
+![Standard Boot Time](src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/NativeBootTime.png?raw=true")
 
 The standard way takes about ```6.311``` seconds to start up and it uses around ```767``` MB of RAM:
 
-(src="pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/StandarMemory.png?raw=true")
+![Standard Boot Time](src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/StandarMemory.png?raw=true")
 
 Now comparing our Natively compiled Spring Boot App, we see a startup time of about ```1.295``` seconds:
 
-(src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/NativeBootTime.png?raw=true")
+![Standard Boot Time](src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/NativeBootTime.png?raw=true")
 
 and uses only ```165MB``` of RAM:
 
-(src="images/NativeMemory.png?raw=true")
+![Native memory](src="/pantbrajesh/springboot-graalvm/blob/master/reactive-h2/images/NativeMemory.png?raw=true")
 
 So with a default Spring App we have around ```800MB``` memory consumption, a natively compiled Spring App has only ```165MB``` . 
 That means, we could run more than ```4``` Spring microservices with the same amount of RAM we needed for only one standard Spring microservice.
